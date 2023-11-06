@@ -1,0 +1,339 @@
+d={}
+d={"name":"Nishant","Age":67,("Dept","others"):"l&D",98575.67:"hdbv#55625632bhvdsgh",
+   "name":["Naresh","Suresh"]}
+
+# d=dict(key1=value1,key=value2,.....)
+#d=dict(name="Nishant",age=89,dept="L&D",_888878="Test")
+print(d)
+print(id(d),type(d),len(d))
+
+#############################################################
+d={"name":"Nishant","Age":67,("Dept","others"):"l&D",
+   98575.67:"hdbv#55625632bhvdsgh"}
+print(d)
+print(id(d),type(d),len(d))
+print("==========Get the value from dict object============")
+# f=d[("Dept","others1")]
+f=d.get(98575.67,"Key not matched!")
+print(f)
+
+for i in d:
+    print(i)#return the keys
+
+############################################
+d={"name":"Nishant","Age":67,("Dept","others"):"l&D",
+   98575.67:"hdbv#55625632bhvdsgh"}
+print(d)
+print(id(d),type(d),len(d))
+print("==========Get the value from dict object============")
+# f=d[("Dept","others1")]
+# f=d.get(98575.67,"Key not matched!")
+# print(f)
+# 
+# for i in d:
+#     print(i)#return the keys
+
+h=d.keys()#d.values()
+print(h)
+print(type(h))
+
+values=[]
+keys=[]
+for i in h:
+    values.append(d[i])
+    keys.append(i)
+     
+print("Values:- ",values)
+print("Keys:-",keys)
+######################################################
+d={"name":"Nishant","Age":67,("Dept","others"):"l&D",
+   98575.67:"hdbv#55625632bhvdsgh"}
+print(d)
+print(id(d),type(d),len(d))
+print("==========Get the value from dict object============")
+# f=d[("Dept","others1")]
+# f=d.get(98575.67,"Key not matched!")
+# print(f)
+# 
+# for i in d:
+#     print(i)#return the keys
+
+h=d.items()#d.keys()#d.values()
+print(h)
+print(type(h))
+
+values=[]
+keys=[]
+for key,value in h:
+
+    values.append(value)
+    keys.append(key)
+      
+print("Values:- ",values)
+print("Keys:-",keys)
+###################################################
+d=dict(name="Nishant",age=89,dept="L&D",_888878="Test")
+print(d)
+print(id(d),type(d),len(d))
+
+d1={"one":1,"two":{"username":"Test","password":"2133"}}
+print(d1)
+print(id(d1),type(d1),len(d1))
+
+print("========update dict==================")
+#update an existing key , value 
+d['name']="Sanjay"
+#update and add new pair with an existing dict object
+d["Data"]="t3624"
+#update dict d with pairs of dict d1 
+d.update(d1)
+#clear the dict object
+d.clear()
+print(d)
+print(id(d),type(d),len(d))
+#############################################################
+
+
+d=dict(name="Nishant",age=89,dept="L&D",_888878="Test")
+d1={"one":1,"two":{"username":"Test","password":"2133"}}
+#create dict d3 with pairs of d1 and d ,Note without any change in d and d1 dict.
+#======3 line============
+#d3=
+#======2 lines============
+#d3=
+#======1 line============
+#d3=
+print(d3)
+print(id(d3),type(d3),len(d3))
+
+#############################################################
+d=dict(name="Nishant",age=89,dept="L&D",_888878="Test")
+print(d)
+print(id(d),type(d),len(d))
+print("========delete dict==================")
+# del d["name1"]
+#to get the deleted value also handle the exception
+key= '_888878'
+f=d.pop(key,"Key Not found!")
+if f=="Key Not found!":
+    print(f"key < {key} >:-",f)
+else:
+    print(f"Deleted value of key < {key} >:-",f)
+print(d)
+print(id(d),type(d),len(d))
+############################################################
+d=dict(name="Nishant",age=89,dept="L&D",_888878="Test")
+print(d)
+print(id(d),type(d),len(d))
+print("========delete dict==================")
+# del d["name1"]
+#to get the deleted value also handle the exception
+key= '_888878'
+f=d.pop(key,"Key Not found!")
+if f=="Key Not found!":
+    print(f"key < {key} >:-",f)
+else:
+    print(f"Deleted value of key < {key} >:-",f)
+print(d)
+print(id(d),type(d),len(d))
+
+g=d.copy() 
+print(g)
+print(id(g))
+##########################################################
+b=[1,1.2,"Test",(45,78),1,1,1,1,1,1,1,1]
+a=set(b)
+a={1,1.2,"Test",(45,78)}
+print(a)
+print(id(a),type(a),len(a))
+a.add(45)
+a.discard(1.2)
+print(a)
+print(id(a),type(a),len(a))
+
+for i in a:
+    print(i)
+############################################################
+def demo():
+    print("This is demo function.")
+    age=90
+    dept="l&D"
+    other="l&D"
+    return age,dept,other #{"age":age,"dept":dept,"other":other}#[dept,age,other]
+
+  
+v=demo()
+print(v)#v[1]
+print(type(v))
+
+###########################################
+#positional arguments
+def details(firstname,lastname,age):
+    name=firstname+' '+lastname 
+    return name,age
+
+
+v=details('Manish',"Meena",78)
+print(v)
+
+m=details("Raj", "Sharma", 67)
+print(m)
+########################################
+#keyword arguments
+
+def details(firstname,lastname,age):
+    name=firstname+' '+lastname 
+    return name,age
+
+
+v=details(lastname="Meena",firstname='Manish',age=78)
+print(v)
+
+m=details(age=67,firstname="Raj", lastname="Sharma")
+print(m)
+
+################################################
+def details(firstname,lastname,age):
+    name=firstname+' '+lastname 
+    return name,age
+
+
+v=details('Manish',age=78,lastname="Meena")
+print(v)
+
+m=details("Raj","Sharma",age=67)
+print(m)
+##############################################
+def details(firstname,lastname,age):
+    name=firstname+' '+lastname 
+    return name,age
+
+
+v=details('Manish',age=78,lastname="Meena")
+print(v)
+
+m=details("Raj","Sharma",age=67)
+print(m)
+
+
+print("The value is :-",78,sep=",",end=' ')
+print("Done")
+######################################
+def details(firstname="Jk",lastname="Tata",age=16):
+    name=firstname+' '+lastname 
+    return name,age
+
+
+v=details('Manish',age=78,lastname="Meena")
+print(v)
+
+m=details()
+print(m)
+############################################
+def details(firstname="Jk",lastname="Tata",age=16):
+    global name
+    name=firstname+' '+lastname #func var > local
+    return name,age,out
+
+out="Hello" # script var > global
+v=details('Manish',age=78,lastname="Meena")
+print(v)
+print(name)
+###############################################
+#bounce.py
+def fact_1(n):
+    from math import factorial 
+    fact=factorial(n)
+    return n,fact
+
+
+def odd_even(number=5):
+    if number%2==0:
+        out="Even"
+        jk=fact_1(number)
+    else:
+        out="Odd"
+        jk=fact_1(number)
+    return out,number,jk[1]
+
+
+print("==========I am running from bounce.py ==========")
+value=input("Enter the value:-")
+if value.isdigit():
+    value=int(value)
+    var=odd_even(value)
+    print(f"The value {var[1]} is {var[0]} and factorial is {var[2]}")
+else:
+    print("Invalid Input.")
+    var=odd_even()
+    print(f"The value {var[1]} is {var[0]} and factorial is {var[2]}")
+    
+        
+##################################################################
+#bounce.py >>> update 
+"""
+this module about 
+fact_1
+odd_even
+time 
+
+etc
+"""
+
+import time as t
+
+def fact_1(n):
+    from math import factorial 
+    fact=factorial(n)
+    return n,fact
+
+
+def odd_even(number=5):
+    if number%2==0:
+        out="Even"
+        jk=fact_1(number)
+    else:
+        out="Odd"
+        jk=fact_1(number)
+    return out,number,jk[1]
+
+
+# print("==========I am running from bounce.py ==========")
+# value=input("Enter the value:-")
+# if value.isdigit():
+#     value=int(value)
+#     var=odd_even(value)
+#     print(f"The value {var[1]} is {var[0]} and factorial is {var[2]}")
+# else:
+#     print("Invalid Input.")
+#     var=odd_even()
+#     print(f"The value {var[1]} is {var[0]} and factorial is {var[2]}")
+    
+###############################################################################
+#calling_1.py  both files within same dir
+# import bounce
+# print(dir(bounce))
+# print(bounce.fact_1.__doc__)
+from bounce import *
+var=odd_even(7)
+print(var)
+###########################################
+#calling_1.py  when module file  within sub dir of calling file
+# import bin.bounce
+# print(dir(bin.bounce))
+# print(bin.bounce.fact_1.__doc__)
+from bin.bounce import *
+var=odd_even(7)
+print(var)
+
+##############################################
+https://forms.gle/7v5k86xh5pr9UtXj9
+Hi All,
+
+Above is the link for Daily Quizz, Please do take it as it is mandatory.
+Any challenges please do ping me on the same.
+
+HAPPY LEARNING
+
+Regards
+Utkarsh

@@ -1,0 +1,8 @@
+line1.txt
+line2.mp3
+line3.mp7
+How have you been?
+Alright!
+Nothing much!
+Not bad!
+It is not rocket science.

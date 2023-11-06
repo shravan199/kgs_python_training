@@ -1,0 +1,268 @@
+def connect():
+    try :
+        #python -m pip install psycopg2
+        import psycopg2 as pg
+        conn=pg.connect(user="nishant",password="1234",database="newdb",
+                        port="5432",host="127.0.0.1")
+        cur=conn.cursor()
+        return conn,cur
+       
+    except pg.DatabaseError as de:
+        print(de.__class__.__name__,":-",de)
+        conn=None 
+        cur=None
+        return conn,cur
+    
+if __name__=="__main__":
+    b=connect()
+    print(b)
+    b[0].close()     
+        
+#########################################################
+from ex1_connect import *
+conn,cur=connect()
+
+sql="""create table if not exists kpmgAug23(
+id int primary key not null,
+name text not null,
+age int not null,
+address char(50),
+salary real)
+"""
+
+cur.execute(sql)
+
+
+conn.commit()
+conn.close()
+############################################
+from ex1_connect import *
+conn,cur=connect()
+#insert one row into table kpmgAug23
+sql="insert into kpmgAug23 (id,name,age,address,salary) values\
+ (4,'Nishant',78,null,null)"
+
+cur.execute(sql)
+
+conn.commit()
+conn.close()
+#########################################
+from ex1_connect import *
+conn,cur=connect()
+#insert one row into table kpmgAug23
+row=(5,'Nishant',78,"New Data",45.6996)#We can't handle null values like that
+sql="insert into kpmgAug23 (id,name,age,address,salary) values " + str(row)
+
+cur.execute(sql)
+
+conn.commit()
+conn.close()
+##############################################
+from ex1_connect import *
+conn,cur=connect()
+#insert one row into table kpmgAug23
+# row=(5,'Nishant',78,"New Data",45.6996)#We can't handle null values like that
+# sql="insert into kpmgAug23 (id,name,age,address,salary) values " + str(row)
+#cur.execute(sql)
+#insert one row into table kpmgAug23 using sql injection.
+# row=(6,'Nishant',78,None,None)
+# sql="insert into kpmgAug23 (id,name,age,address,salary) values (%s,%s,%s,%s,%s)"
+# cur.execute(sql,row)#2nd Argument is a tuple value 
+#insert list of  rows(tuples) into table kpmgAug23 using sql injection.
+rows=[(7,'Nishant',78,None,None),(8,'Raj',98,None,None),(9,'Nishant',78,"Mawan meerut",478.979),
+      (10,'Raj',98,"Gol puri",765.90)]
+sql="insert into kpmgAug23 (id,name,age,address,salary) values (%s,%s,%s,%s,%s)"
+cur.executemany(sql,rows)#2nd Argument is a list of tuples  
+conn.commit()
+conn.close()
+###################################################
+#insert the given rows into the table 
+rows=[(128,None,14,None,'Udai'),(129,None,23,"Nothing",'Geeta'),(120,45.90,29,"Rita BHag",'Vinesh'),
+      (118,None,14,None,'Udai'),(119,None,23,"Nothing",'Geeta'),(111,45.90,29,"Rita BHag",'Vinesh')]
+
+##############################################################
+from ex1_connect import *
+conn,cur=connect()
+
+sql="select * from kpmgAug23"
+
+cur.execute(sql)
+
+# for i in enumerate(cur):#(indexNumber,row(tuple))
+#     print(f"{i[0]+1}",i[1])
+
+# g=cur.fetchone()#return one row 
+# g=cur.fetchmany()#return list of one row(tuple)
+#g=cur.fetchmany(-1)#return list of all rows(tuples)
+# g=cur.fetchmany(4)#return list of 4 rows(tuples)
+g=cur.fetchall()#return list of all rows(tuples)
+print(g)
+print(len(g))
+
+conn.close()
+################################################
+from ex1_connect import *
+conn,cur=connect()
+
+# sql="select id,age,name from kpmgAug23"
+sql="select * from kpmgAug23"
+
+cur.execute(sql)
+
+# for i in enumerate(cur):#(indexNumber,row(tuple))
+#     print(f"{i[0]+1}",i[1])
+
+# g=cur.fetchone()#return one row 
+# g=cur.fetchmany()#return list of one row(tuple)
+#g=cur.fetchmany(-1)#return list of all rows(tuples)
+# g=cur.fetchmany(4)#return list of 4 rows(tuples)
+g=cur.fetchall()#return list of all rows(tuples)
+print(g)
+print(len(g))
+import pandas as pd 
+df=pd.DataFrame(data=g,columns=['id','name','Age',"Address","Salary"])
+print(df.info())
+print(df)
+df.to_excel("New.xlsx",sheet_name="nishant_data",index=False)
+conn.close()
+###################################################################
+from ex1_connect import *
+conn,cur=connect()
+
+# sql="select * from kpmgAug23 where id=%s"
+# row=(110,)#one value tuple
+sql="select * from kpmgAug23 where name=%s and age=%s"
+row=('Nishant',78)#one value tuple
+
+cur.execute(sql,row)
+
+# for i in enumerate(cur):#(indexNumber,row(tuple))
+#     print(f"{i[0]+1}",i[1])
+
+row_=cur.fetchall()
+print(row_)
+#####################################################################
+print("========rows updating==============")
+# sql="update kpmgAug23 set name=%s where name=%s"
+# row=("Reena","Nishant")
+sql="update kpmgAug23 set name=%s,address=%s where name=%s and age=%s"
+row=("Jhon","Florida Home","Reena",25)
+cur.execute(sql,row)
+conn.commit()
+print("==========rows updated=====================")
+
+############################################################
+from ex1_connect import *
+import time
+conn,cur=connect()
+
+sql="select * from kpmgAug23"
+cur.execute(sql)
+print("=======================Rows before Delete===================")
+for i in enumerate(cur):#(indexNumber,row(tuple))
+    print(f"{i[0]+1}",i[1])
+print("========rows Deleting==============")
+# sql="delete from kpmgAug23  where id=%s"
+# row=(120,)
+sql="delete from kpmgAug23  where name=%s and age=%s"
+row=('Reena', 78)
+cur.execute(sql,row)
+conn.commit()
+print("==========rows Deleted=====================")    
+    
+time.sleep(3)
+sql="select * from kpmgAug23"
+cur.execute(sql)
+print("=======================Rows after Delete===================")
+time.sleep(2)
+for i in enumerate(cur):#(indexNumber,row(tuple))
+    print(f"{i[0]+1}",i[1])
+    
+    
+    
+conn.close()
+#################################################
+import sqlite3 as sq 
+
+conn=sq.connect("kpmg.db")
+cur=conn.cursor()
+sql="""create table if not exists kpmgAug23(
+id integer primary key not null,
+name text not null,
+age integer not null,
+address char(50),
+salary real)
+"""
+
+cur.execute(sql)
+
+
+conn.commit()
+
+conn.close()
+
+##################################
+import sqlite3 as sq 
+
+conn=sq.connect("kpmg.db")
+cur=conn.cursor()
+rows=[(128,None,14,None,'Udai'),(129,None,23,"Nothing",'Geeta'),(120,45.90,29,"Rita BHag",'Vinesh'),
+      (118,None,14,None,'Udai'),(119,None,23,"Nothing",'Geeta'),(111,45.90,29,"Rita BHag",'Vinesh')]
+
+sql="insert into kpmgAug23 (id,salary,age,address,name) values (?,?,?,?,?)"
+cur.executemany(sql,rows)#2nd Argument is a list of tuples  
+conn.commit()
+conn.close()
+##################################
+https://sqlitestudio.pl/
+#####################################
+a=lambda x=10,y=5: x**2+y**2+2*x/y+56.89
+print(a)
+print(type(a))
+#x=10 y=5
+b=a(10,5)#positional argument
+print(b)
+
+b=a(y=5,x=10)#keyword argument
+print(b)
+
+b=a()
+print(b)
+############################################
+seq=[78,89,34,35,36,67,89]
+g=filter(lambda x : x%2!=0,seq)
+print(g)
+h=tuple(g)#list(g)
+print(h)
+
+############################################
+input="I43N4D4I43@4123D34E3L44H5I"
+##############################################
+input="I43N4D4I43@4123D34E3L44H5I"
+h=list(filter(lambda x : not x.isdigit() ,input))
+print(h)
+
+g="".join(h)
+print(g)
+############################################
+input="I43N4D4I43@4123D34E3L44H5I"
+h="".join(list(filter(lambda x : not x.isdigit() ,input)))
+print(h)
+##########################################
+#create a list of 1000 numbers ?
+# out=[]
+# for i in range(1,1001):
+#     out.append(i)
+# print(out)
+# list comprehension in python
+# [value for loop_var in iterObject]
+g=[i for i in range(1,1001)]
+print(g)
+# [value for loop_var in iterObject if exp]
+g=[i for i in range(1,20) if i%2==0]
+print(g)
+
+# [value1 if exp else value2 for loop_var in iterObject ]
+g=[i if i%2==0 else "Odd" for i in range(1,20) ]
+print(g)
+######################################################

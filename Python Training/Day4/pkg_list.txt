@@ -1,0 +1,8 @@
+django
+flask
+matplotlib
+numpy
+pandas
+seaborn
+requests
+regex

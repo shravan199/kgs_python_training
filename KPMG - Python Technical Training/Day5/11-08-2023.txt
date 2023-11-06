@@ -1,0 +1,527 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+https://forms.gle/7v5k86xh5pr9UtXj9
+
+Hi All,
+
+Above is the link for Daily Quizz, Please do take it as it is mandatory.
+Any challenges please do ping me on the same.
+
+HAPPY LEARNING
+
+Regards
+Utkarsh
+
+###################################################################
+"""
+this module about 
+fact_1
+odd_even
+time 
+
+etc
+"""
+
+import time as t
+
+def fact_1(n):
+    """
+    hello
+    """
+    from math import factorial 
+    fact=factorial(n)
+    return n,fact
+
+
+def odd_even(number=5):
+    if number%2==0:
+        out="Even"
+        jk=fact_1(number)
+    else:
+        out="Odd"
+        jk=fact_1(number)
+    return out,number,jk[1]
+print(__name__)
+if __name__=="__main__":
+    print("==========I am running from bounce.py ==========")
+    value=input("Enter the value:-")
+    if value.isdigit():
+        value=int(value)
+        var=odd_even(value)
+        print(f"The value {var[1]} is {var[0]} and factorial is {var[2]}")
+    else:
+        print("Invalid Input.")
+        var=odd_even()
+        print(f"The value {var[1]} is {var[0]} and factorial is {var[2]}")
+        
+        
+########################################################################
+import os,time
+print(os.getcwd())
+print(os.listdir()) 
+os.chdir(r"C:\Users\OM\eclipse-workspace\KpmgAug2023\Day4")
+print(os.getcwd())
+print(os.listdir())
+#os.mkdir("newfolder/sys")
+os.rename("newfolder2","test")
+if os.path.exists("newfolder2/sys"):
+    pass
+else:
+    os.makedirs("newfolder2/sys")
+
+time.sleep(2)
+print(os.listdir())
+
+########################################################
+01 line.mp3
+02 line_heloo.mp4
+03 line_text.mp3
+04 line.mkv
+05 line.hs
+##################################
+import os,time,shutil
+print(os.getcwd())
+print(os.listdir()) 
+os.chdir(r"C:\Users\OM\eclipse-workspace\KpmgAug2023\Day4")
+print(os.getcwd())
+print(os.listdir())
+#os.mkdir("newfolder/sys")
+# os.rename("newfolder2","test")
+# if os.path.exists("newfolder2/sys"):
+#     pass
+# else:
+#     os.makedirs("newfolder2/sys")
+#os.rmdir("test/sys")#remove only sub dir
+# os.removedirs("test/sys")
+shutil.rmtree("test/sys",ignore_errors=True)#delete the dir with/without content
+time.sleep(2)
+print(os.listdir())
+######################################
+import os
+g=os.walk(r"path")
+print(g)
+for path,folders,files in g:
+    print("path:-",path)
+    print("List of folders:-",folders)
+    print("List of files:-",files)
+    print()
+    if "lines.txt" in files:
+        print(path)
+##########################################
+print(os.path.isfile("hello"))
+print(os.path.isdir("test"))
+#################################################
+#obj=open(filename,mode)# r>read,w>write,r+>read/write ,a>append
+obj=open("lines.txt",'r')
+print(obj)
+for line in obj:
+    print(line.strip())
+
+obj.seek(0)
+f=obj.readlines()#list of lines#obj.readline()
+print(f)
+obj.close()
+
+obj.readline()
+####################################################
+with open("lines.txt") as obj:
+    for line in obj:
+        print(line.strip())
+        
+        
+obj.readline()
+############################################
+import os
+infile=open("lines.txt",'r')#web ,python ,database
+outfile=open('out.txt','a')
+
+for line in infile:
+    print(line.strip(),file=outfile)
+    print(".")
+    
+if os.path.exists("out.txt") :  
+    print("file ready")
+    
+#check file have some data or not ?
+#write only the line that have .mp3.?
+
+##############################################
+import os
+infile=open("lines.txt",'r')#web ,python ,database
+outfile=open('out.txt','w')
+
+for line in infile:
+    if line.strip().endswith('.mp3'):
+        print(line.strip(),file=outfile)
+    print(".")
+
+outfile.close()
+infile.close()    
+if os.path.exists("out.txt") :
+    if os.path.getsize("out.txt")>0:  
+        print("file ready")
+print(os.path.getsize("out.txt")) #bytes
+    
+#check file have some data or not ?
+#write only the line that have hello.?
+###################################################
+import os
+infile=open("bigfile.txt",'rb')#web ,python ,database
+outfile=open('out.txt','wb')
+buffer_size=31 #bytes
+buffer=infile.read(buffer_size)
+
+while buffer:
+    outfile.write(buffer)
+    buffer=infile.read(buffer_size)
+    print(".")
+
+outfile.close()
+infile.close()    
+if os.path.exists("out.txt") :
+    if os.path.getsize("out.txt")>0:  
+        print("file ready")
+print(os.path.getsize("out.txt")) #bytes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# for line in infile:
+#     if line.strip().endswith('.mp3'):
+#         print(line.strip(),file=outfile)
+#     print(".")
+# 
+# outfile.close()
+# infile.close()    
+# if os.path.exists("out.txt") :
+#     if os.path.getsize("out.txt")>0:  
+#         print("file ready")
+# print(os.path.getsize("out.txt")) #bytes
+#######################################################
+import os
+infile=open("olives.jpg",'rb')#web ,python ,database
+outfile=open('new.png','wb')
+buffer_size=5000 #bytes
+buffer=infile.read(buffer_size)
+
+while buffer:
+    outfile.write(buffer)
+    buffer=infile.read(buffer_size)
+    print(".")
+
+outfile.close()
+infile.close()    
+if os.path.exists("out.txt") :
+    if os.path.getsize("out.txt")>0:  
+        print("file ready")
+print(os.path.getsize("out.txt")) #bytes
+#####################################################
+import json
+obj=open('data.json','r')
+# >json> python dict
+dictObject=json.load(obj)
+print(dictObject)
+print(type(dictObject),len(dictObject))
+print(dictObject['students'])
+#####################################
+#dict> json
+json_data=json.dumps(dictObject)
+print(json_data)
+print(type(json_data),len(json_data))
+
+#create/write  a json_data.json file ?
+
+####################################################################
+try:
+    fh=open('line.txt','r')
+    for line in fh:
+        print(line.strip())
+except: 
+    print("Error Handled!")
+    
+    
+print("=========i am running ============")
+import datetime as dt 
+now=dt.datetime.now()
+print(now)
+###########################################################
+try:
+    fh=open('lines.txt','r')
+    for line in fh:
+        print(line.strip())
+    
+except Exception as e: #General Exception 
+    print("Error Handled!")
+    print("Error NAme:-",e.__class__.__name__)
+    print("Error Msg:-",e)
+    
+    
+print("=========i am running ============")
+import datetime as dt 
+now=dt.datetime.now()
+print(now)
+###########################################################
+try:
+    fh=open('lines.txt','r')
+    for line in fh:
+        print(line.strip())
+        
+    a=1/0
+
+except IOError as o:
+    print(o.__class__.__name__," Msg:- ",o)
+    gh=open('demo.txt','r')
+    for line in gh:
+        print(line.strip())    
+
+except ZeroDivisionError as z:
+    print("X/0 Error",z)    
+
+except Exception as e: #General Exception
+    print("Error Handled!")
+    print("Error NAme:-",e.__class__.__name__)
+    print("Error Msg:-",e)
+    
+    
+print("=========i am running ============")
+import datetime as dt 
+now=dt.datetime.now()
+print(now)
+
+#########################################################
+try:
+    fh=open('lines.txt','r')
+    for line in fh:
+        print(line.strip())
+        
+    a=1/0
+
+except IOError as o:
+    print(o.__class__.__name__," Msg:- ",o)
+    gh=open('demo.txt','r')
+    for line in gh:
+        print(line.strip())    
+
+except ZeroDivisionError as z:
+    print("X/0 Error",z)    
+
+except Exception as e: #General Exception
+    print("Error Handled!")
+    print("Error NAme:-",e.__class__.__name__)
+    print("Error Msg:-",e)
+    
+finally:
+    print("This is finally block.")
+    fh.close()
+    
+    
+    
+print("=========i am running ============")
+import datetime as dt 
+now=dt.datetime.now()
+print(now)
+####################################################
+try:
+    fh=open('line.txt','r')
+    for line in fh:
+        print(line.strip())
+        
+    a=1/0
+
+except IOError as o:
+    print(o.__class__.__name__," Msg:- ",o)
+    gh=open('demo.txt','r')
+    for line in gh:
+        print(line.strip())    
+
+except ZeroDivisionError as z:
+    print("X/0 Error",z)    
+
+except Exception as e: #General Exception
+    print("Error Handled!")
+    print("Error NAme:-",e.__class__.__name__)
+    print("Error Msg:-",e)
+    
+finally:
+    print("This is finally block.")
+    try:
+        fh.close()
+    except Exception as e :
+        print(e.__class__.__name__,e)
+    
+    
+    
+print("=========i am running ============")
+import datetime as dt 
+now=dt.datetime.now()
+print(now)
+
+####################################################
+try:
+    fh=open('lines.txt','r')
+    for line in fh:
+        print(line.strip())
+        
+#     a=1/0
+
+except IOError as o:
+    print(o.__class__.__name__," Msg:- ",o)
+    gh=open('demo.txt','r')
+    for line in gh:
+        print(line.strip())    
+
+except ZeroDivisionError as z:
+    print("X/0 Error",z)    
+
+except Exception as e: #General Exception
+    print("Error Handled!")
+    print("Error NAme:-",e.__class__.__name__)
+    print("Error Msg:-",e)
+else:
+    print("This else block.")    
+finally:
+    print("This is finally block.")
+    try:
+        fh.close()
+    except Exception as e :
+        print(e.__class__.__name__,e)
+    
+    
+    
+print("=========i am running ============")
+import datetime as dt 
+now=dt.datetime.now()
+print(now)
+########################################
+try:
+    fh=open('lines.txt','r')
+    for line in fh:
+        print(line.strip())
+        
+    a=1/0
+
+except IOError as o:
+    print(o.__class__.__name__," Msg:- ",o)
+    gh=open('demo.txt','r')
+    for line in gh:
+        print(line.strip())    
+
+except ZeroDivisionError as z:
+    print("X/0 Error",z)
+      
+
+except Exception as e: #General Exception
+    print("Error Handled!")
+    print("Error NAme:-",e.__class__.__name__)
+    print("Error Msg:-",e)
+else:
+    print("This else block.")    
+finally:
+    print("This is finally block.")
+    try:
+        fh.close()
+    except Exception as e :
+        print(e.__class__.__name__,e)
+    
+    
+    
+print("=========i am running ============")
+import datetime as dt 
+now=dt.datetime.now()
+print(now)
+#######################################
+def main(filename):
+    try :
+        for line in readfile(filename):
+            print(line.strip())
+    except IOError as o:
+        print(o.__class__.__name__," Msg:- ",o)
+        gh=open('demo.txt','r')
+        for line in gh:
+            print(line.strip())
+    except ValueError as v:
+        print(v,"Ext. should be .txt")  
+    
+    except Exception as e:
+        print("Error Handled!")
+        print("Error NAme:-",e.__class__.__name__)
+        print("Error Msg:-",e)
+
+def readfile(filename):
+    if filename.endswith(".txt"):
+        fh=open(filename)
+        return fh 
+    else:
+        raise ValueError("Bad Ext.")
+    
+main("lines.pdf")
+
+####################################################################
+from datetime import datetime
+import time
+now=datetime.now()
+print(now)
+print(type(now))
+print(now.year,now.month,now.day,now.hour)
+
+g=datetime(datetime.now().year,datetime.now().month,datetime.now().day,17,55)
+print(g)
+
+
+while True:
+    if datetime(datetime.now().year,datetime.now().month,datetime.now().day,14,1)<=datetime.now()<=datetime(datetime.now().year,datetime.now().month,datetime.now().day,18,1):
+        print("Learning Hours")
+    else:
+        print("Family Hours")
+    time.sleep(2)
+
+###################################################################
+from datetime import datetime,date
+import time
+now=datetime.now()
+print(now)
+print(type(now))
+print(now.year,now.month,now.day,now.hour)
+
+g=datetime(datetime.now().year,datetime.now().month,datetime.now().day,17,55)
+print(g)
+m=date.today()
+h=date(2023,8,12)
+
+h=now.strftime("%Y-%m-%d %H:%M:%S") #24Hrs
+h=now.strftime("%y-%m-%d %I:%M:%S %p") #24Hrs
+print(h,type(h))
+
+
+
+
+
+
+
+
+while True:
+    if datetime(datetime.now().year,datetime.now().month,datetime.now().day,14,1)<=datetime.now()<=datetime(datetime.now().year,datetime.now().month,datetime.now().day,18,1):
+        print("Learning Hours")
+    else:
+        print("Family Hours")
+    time.sleep(2)
+
+############################################################################

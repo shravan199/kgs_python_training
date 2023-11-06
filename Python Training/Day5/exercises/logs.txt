@@ -1,0 +1,45 @@
+ERROR:shravan_logger:Error name: FileNotFoundError, Error Msg: [Errno 2] No such file or directory: 'name.txt'
+Traceback (most recent call last):
+  File "d:\Python\Python Training\Day5\exercises\ex.py", line 11, in <module>
+    with open('name.txt', 'r') as fo:
+FileNotFoundError: [Errno 2] No such file or directory: 'name.txt'
+ERROR:shravan_logger:Error name: TypeError, Error Msg: unsupported operand type(s) for +: 'int' and 'str'
+Traceback (most recent call last):
+  File "d:\Python\Python Training\Day5\exercises\ex1.py", line 15, in <module>
+    fo.write(i + inp)
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+ERROR:shravan_logger:Error name: UnsupportedOperation, Error Msg: not writable
+Traceback (most recent call last):
+  File "d:\Python\Python Training\Day5\exercises\ex1.py", line 15, in <module>
+    fo.write(str(i) + ':' + inp)
+io.UnsupportedOperation: not writable
+ERROR:shravan_logger:
+Error name: TypeError, Error Msg: a bytes-like object is required, not 'str'
+Traceback (most recent call last):
+  File "d:\Python\Python Training\Day5\exercises\ex1.py", line 15, in <module>
+    fo.write(str(i+1) + ': ' + inp + '\n')
+TypeError: a bytes-like object is required, not 'str'
+ERROR:shravan_logger:
+Error name: TypeError, Error Msg: write() argument must be str, not list
+Traceback (most recent call last):
+  File "d:\Python\Python Training\Day5\exercises\ex2.py", line 28, in <module>
+    fo.write(lines)
+TypeError: write() argument must be str, not list
+ERROR:shravan_logger:
+Error name: TypeError, Error Msg: a bytes-like object is required, not 'list'
+Traceback (most recent call last):
+  File "d:\Python\Python Training\Day5\exercises\ex2.py", line 28, in <module>
+    fo.write(lines)
+TypeError: a bytes-like object is required, not 'list'
+ERROR:shravan_logger:
+Error name: AttributeError, Error Msg: 'list' object has no attribute 'encode'
+Traceback (most recent call last):
+  File "d:\Python\Python Training\Day5\exercises\ex2.py", line 28, in <module>
+    fo.write(lines.encode())
+AttributeError: 'list' object has no attribute 'encode'
+ERROR:shravan_logger:
+Error name: AttributeError, Error Msg: 'bytes' object has no attribute 'encode'
+Traceback (most recent call last):
+  File "d:\Python\Python Training\Day5\exercises\ex2.py", line 29, in <module>
+    fo.write(line.encode())
+AttributeError: 'bytes' object has no attribute 'encode'

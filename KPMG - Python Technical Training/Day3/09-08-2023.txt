@@ -1,0 +1,270 @@
+obj=(1,1.2,"Nishant",(56,89),[89,90])
+
+for i in obj:
+    print(i,type(i))
+    
+for m in ["Nishant","Suresh","Shyam","Radha Rani","Krishna","Naresh"]:
+    print(m)
+    if m!="Naresh":
+        print(m,"Please join my evening Party")
+        
+# print "hello" 1000 times ?
+##############################
+# for m in range(5):
+#     print(m)
+#     
+# for m in range(3,10,3):
+#     print(m)
+k=0    
+for i in range(1000):
+    k += 1
+    print(k,"Hello")
+
+##################################################
+# loop it 5 times with for loop 
+a=input("Enter the value 0-100:-")
+if a.isdigit():
+    a=int(a)
+    if 0<=a<=100: #101
+        if 10<a<60:
+            if a>43:
+                print(f"The Value {a} is Large.")
+            elif a>35 and a<=43:
+                print(f"The Value {a} is Medium.")
+            else:
+                print(f"The Value {a} is Small.")
+            
+        else:
+            print(f"The Value {a} out of Range(10<value<60) . ")
+    else:
+        print(f"Value {a} Out of range(0-100)")
+else:
+    print("Please Enter the valid Integer Number b/w 0-100.")
+
+####################################################################
+a=input("Enter the value b/w 0-20:-")
+a=a.strip() 
+if a.isdigit():
+    a=int(a)
+    if 0<=a<=20:
+        fact=1
+        for i in range(1,a+1): # 1:2:1 >1
+            print(f"{i}*{fact}=",end='')
+            fact=fact*i 
+            print(fact)
+        print(f"The factorial of the value {a} is {fact}")
+    else:
+        print(f"Enterd value:- {a},out of range(0<{a}>20) .")
+else:
+    print(f"Enterd value:- {a}, Note:- Please Enter the valid Integer Number b/w 0-20.")
+
+###############################################
+a=10
+b=20
+
+# while a<b:
+#     
+#     print(a,"Nishant")
+#     a=a+1
+    
+    
+while a<b :
+    
+    print(b,"Nishant")
+    b=b-1
+#############################################
+a=10
+b=20
+
+# while a<b:
+#     
+#     print(a,"Nishant")
+#     a=a+1
+    
+    
+# while a<b :
+#     
+#     print(b,"Nishant")
+#     b=b-1
+
+for i in [56,78,45,34,33,79,90,91]:
+    if i%2!=0:
+        #break
+        #continue
+        pass# doing nothing
+        print("This is pass block")
+    print(i)
+    
+print("Done")
+
+name="Terst"
+if name=="Test":
+    pass
+
+################################################
+a=input("Enter the value b/w 0-20:-")
+print(a,len(a))
+a=a.strip() 
+if a.isdigit():
+    a=int(a)
+    if 0<=a<=20:
+        fact=1
+        i=0
+        while i<a:
+            i +=1
+            print(f"{i}*{fact}=",end='')
+            fact=fact*i 
+            print(fact)
+        print(f"The factorial of the value {a} is {fact}")
+    else:
+        print(f"Enterd value:- {a},out of range(0<{a}>20) .")
+else:
+    print(f"Enterd value:- {a}, Note:- Please Enter the valid Integer Number b/w 0-20.")
+
+#####################################
+import sys 
+print(sys.builtin_module_names)
+######################################
+import math
+print(dir(math))
+var=5 
+print(var)
+a=math.pi*5**2
+print(a)
+
+b=math.sin(math.pi/6)
+print(b)
+
+########################################
+import math as coco
+print(dir(coco))
+g=coco.factorial(6)
+print(g)
+
+h=coco.cos(coco.pi/6)
+print(h)
+print(coco.sqrt(3)/2)
+
+##################################
+from math import *
+
+g=sin(pi/6)
+print(g)
+
+f=factorial(7)
+print(f)
+
+#################################
+from math import pi,sin, factorial
+
+g=pi*3**2
+print(g)
+
+f=sin(pi/3)
+
+print(f)
+
+g=factorial(5)
+print(g)
+
+#########################################
+list of installed 3PP 
+python -m pip freeze
+
+
+python -m pip install pkgname 
+
+python -m pip install pkgname==X.X.X
+
+python -m pip uninstall pkgname 
+
+python -m pip -U pkgname
+
+
+matplotlib 
+numpy
+pandas
+flask
+django==1.10 
+requests
+bs4
+psycopg2
+mysql-connector
+
+######################################
+from random import randint,random,uniform,randrange 
+# g=randint(10,67)
+# print(g)
+
+# a=random()
+# print(a)
+
+# f=uniform(-67.90,78)
+# print(f)
+for i in range(10):
+    a=randrange(10,22,3)
+    print(a)
+
+######################################
+# a=[]
+# a=["Test"]
+a=["Test",1,1.2,(1,2),[89,67],56.6]
+print(a)
+print(id(a),type(a),len(a))
+b=a[2]#1.2 Indexing
+b=a[2::2]#2:6:2> 2,4 >[1.2,[89,67]] #slicing
+print(b)
+#iterObject 
+for i in a:
+    print(i)
+
+####################################################
+a=[1,2,3,4,5]
+print(a)
+print(id(a),type(a),len(a))
+print("======Update======")
+#a[2]=99
+#a.append((45,"Test",89))
+#a.insert(2, [34,"Test",90,"Hello"])
+# a.extend([45,89,67,90,"hello"])
+# for i in [45,89,67,90,"hello"]:
+#     a.append(i)
+    
+print(a)
+print(id(a),type(a),len(a))
+
+#####################################################
+a=["Test",1,1.2,(1,2),[89,67],56.6]
+print(a)
+print(id(a),type(a),len(a))
+print("==========delete=======")
+# del a[0] # By index
+# a.remove("Test")#By value
+# m=a.pop() # delete the last value from the list and return the deleted value 
+m=a.pop(4)
+print("Deleted value:-",m)
+print(a)
+print(id(a),type(a),len(a))
+
+#####################################################
+a=["Test",1,"Test",1.2,"Test",(1,2),"Test",[89,67],"Test","Test",56.6,"Test"]
+print(a)
+print(id(a),type(a),len(a))
+print("==========delete=======")
+#create a list of Value "Test" index numbers . ?
+#[0,2,4....]
+#Delete all the "Test" Values from given list ? 
+########################################################
+a=[1,5,3,4,2,7,8,10,9,6]
+print(a)
+print(id(a),type(a),len(a))
+#a.reverse()
+# a.sort()
+a.sort(reverse=True)
+print(a)
+print(id(a),type(a),len(a))
+#####################list&tuple+++++++++++
+from numpy import mean
+m=mean(a)#len(a)#max(a)#min(a)#sum(a)
+print(m)
+############################################################

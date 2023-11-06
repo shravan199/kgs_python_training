@@ -1,0 +1,261 @@
+a="NISHANT"
+a=(10,10.8,"Nishant",(89,("Hii",)),90.78,"Test")
+print(a)
+
+b=a[-2] #90.78
+print("The value is b :-",b)
+
+# get the index number of Value Hii from given tuple a ?
+b=a[3][-1][0]
+print(b)
+# Try to update  the value of tuple object
+#a[2]="Manish"
+#TypeError: 'tuple' object does not support item assignment
+#del a[2]
+#TypeError: 'tuple' object doesn't support item deletion
+
+#############################################################
+a="NISHANT"
+print(a)
+
+b=a[4]
+print(b)
+# try to update the char of an string object
+#a[4]="P"
+# TypeError: 'str' object does not support item assignment
+del a[4]
+#TypeError: 'str' object doesn't support item deletion
+#################################################################
+# a="NISHANT"
+# print(a)
+# 
+# #b=a[0:7:2]#0,2,4,6>NSAT
+# b=a[::4]# 0:len(a):4 > 0:7:4 > 0,4> NA
+# print(b,type(b),len(b))
+a=(10,10.8,"Nishant",(89,("Hii",)),90.78,"Test")
+print(a)
+
+b=a[::4]# 0:len(a):4 > 0:6:4 > 0,4> (10,90.78)
+print(b,type(b),len(b))
+
+##################################################################
+# a="NISHANT"
+# a="NISHANT Sharma"
+a=(10,10.8,"Nishant",(89,("Hii",)),90.78,"Test")
+print(a)
+# reverse the whole seq with slicing ?
+b=a[::-1]
+print(b)
+
+##################################################################
+a="NISHANT"
+# a="NISHANT Sharma"
+# a=(10,10.8,"Nishant",(89,("Hii",)),90.78,"Test")
+print(a)
+# reverse the whole seq and fill the value of X and Y with logic of slicing ?
+b=a[X:Y:-1]
+print(b)
+##############################################################
+a="NISHANT"
+a="NISHANT Sharma"
+a=(10,10.8,"Nishant",(89,("Hii",)),90.78,"Test")
+print(a)
+# reverse the whole seq and fill the value of X and Y with logic of slicing ?
+b=a[-1:-(len(a)+1):-1]
+print(b)
+##############################################################
+a=(1,2,3)
+b=(4,5)
+c=a+b 
+print(c)
+
+v="Nishant"
+age=89 
+m=v+" "+str(age)
+print(m)
+
+print(m*4)
+print(a*3)
+###########################################
+# How to create a string object in python 
+obj="Google News is a news aggregator service developed by Google. It presents a continuous flow of links to articles organized from thousands of publishers and magazines. Google News is available as an app on Android, iOS, and the Web. Google released a beta version in September 2002 and the official app in January 2006."
+
+obj="Google News is a news aggregator service developed by Google. \
+It presents a continuous flow of links to articles organized from \
+thousands of publishers and magazines. Google News is available as \
+an app on Android, iOS, and the Web. Google released a beta version \
+in September 2002 and the official app in January 2006."
+print(obj)
+# break above str object into multine in code file only 
+#output i want same as old one (one line)
+
+##############################################
+#covert these text into str object and print it
+This is Nishant's House. 
+This is "Nishant's" House.
+This is "Nishant" House.  
+
+#covert below multiline text into str object  and print output as  multiline ?
+
+Google News is a news's aggregator service developed by Google. 
+It presents a continuous flow of links to articles organized from 
+thousands of publishers and "magazines". Google News is available as 
+an app on Android, iOS, and the Web's'. Google released a beta version 
+in September 2002 and the official app in January 2006.
+####################################################
+#covert these text into str object and print it
+a="This is Nishant's House."
+print(a) 
+a='This is "Nishant\'s" House.'
+print(a) 
+a='This is "Nishant" House.'  
+print(a) 
+####################################################
+#covert below multiline text into str object  and print output as  multiline ?
+
+obj="Google News is a news's aggregator service developed by Google. \n\
+It presents a continuous flow of links to articles organized from \n\
+thousands of publishers and \"magazines\". Google News is available as \n\
+an app on Android, iOS, and the Web's'. Google released a beta version \n\
+in September 2002 and the official app in January 2006."
+
+print(obj)
+#######################################################
+obj="""Google News is a news's "aggregator" service developed by Google. 
+It presents a continuous's flow of links to articles organized from 
+thousands of publishers and "magazines". Google News is available as 
+an app on Android&$_, iOS, and the Web's'. Google released a beta version 
+in September 2002 and the official app in January 2006."""
+print(obj)
+
+##################################################
+obj='''Google News is a news's "aggregator" service developed by Google. 
+It presents a continuous's flow of links to articles organized from 
+thousands of publishers and "magazines". Google News is available as 
+an app on Android&$_, iOS, and the Web's'. Google released a beta version 
+in September 2002 and the official app in January 2006.'''
+print(obj)
+##############################################
+# row string
+obj=r"C:\Users\OM\eclipse-workspace\npmgAug2023\Day2"
+print(obj)
+############################################
+name="Nishant"
+surname="Sharma"
+age=90
+#dynamic string
+out="Name:- "+name+" "+surname +" Age :- "+str(age)
+print(out)
+#format method 
+#{} > placeholder
+out="Name :- {} age :- {}".format(name,age)
+print(out)
+out="Name :- {1} age :- {0}".format(name,age) #Index Numbers:- name> 0  age > 1
+print(out)
+# len of {} <= len Variables passed into format method
+#f-string method
+out=f"Name :- {name} age :- {age}"
+print(out)
+###################################################
+#string methods 
+a="      tHiS Is nIsHanT HOuse. Is is       "
+print(a,len(a))
+a=a.strip()#remove the whitespace chars from left & right side of your string#a.rstrip()#remove the whitespace from right side of your string #a.lstrip()#remove the whitespace from left side of your string
+print(a,len(a))
+b=a.replace("Is", "mm",2)#a.swapcase()#a.lower()#a.upper()#a.capitalize()
+print(b,len(b))
+#############################################
+a="1234."
+print(a)
+
+b=a.isdigit() #Returns True if all characters in the string are digits
+print(b)
+###############################################
+a="abCd45"
+print(a)
+
+#b=a.isdigit() #Returns True if all characters in the string are digits
+b=a.isalpha() #Returns True if all characters in the string are in the alphabet
+print(b)
+###############################################
+a="     ."
+print(a)
+
+#b=a.isdigit() #Returns True if all characters in the string are digits
+# b=a.isalpha() #Returns True if all characters in the string are in the alphabet
+b=a.isspace()#Returns True if all characters in the string are whitespaces
+print(b)
+####################################
+a="NISHANt1234"
+print(a)
+
+#b=a.isdigit() #Returns True if all characters in the string are digits
+# b=a.isalpha() #Returns True if all characters in the string are in the alphabet
+# b=a.isspace()#Returns True if all characters in the string are whitespaces
+b=a.isupper()#Returns True if all characters in the string are upper case
+print(b)
+#####################################
+a="niN1234@"
+print(a)
+
+#b=a.isdigit() #Returns True if all characters in the string are digits
+# b=a.isalpha() #Returns True if all characters in the string are in the alphabet
+# b=a.isspace()#Returns True if all characters in the string are whitespaces
+# b=a.isupper()#Returns True if all characters in the string are upper case
+b=a.islower()#Returns True if all characters in the string are lower case
+print(b)
+#######################################
+a="01 Kal Ho na Ho.Mp3"
+print(a)
+b=a.endswith(".mp3")
+print(b)#Returns true if the string ends with the specified value
+##################
+a="0y Kal Ho na Ho.Mp3"
+print(a)
+# b=a.endswith(".mp3")#Returns true if the string ends with the specified value
+b=a.startswith('01')#Returns true if the string starts with the specified value
+print(b)
+##############################
+a="0y Kal jo na jo.Mp3"
+print(a)
+# b=a.endswith(".mp3")#Returns true if the string ends with the specified value
+#b=a.startswith('01')#Returns true if the string starts with the specified value
+b=a.__contains__('Ho')#Returns true if the string match the key 
+print(b)
+################################
+name="Manish"
+surname="Meena"
+
+if name=="Manish":
+	print("The name matched")
+      	if surname=="Meena":
+		print("NAme and surname matched!")
+
+else:
+	print("Name not matched!")
+
+###########################################
+perItem=(30,100,40)
+obj=f"""Food Menu        PerItem Price
+1.B              {perItem[0]}
+2.P              {perItem[1]}
+3.S              {perItem[2]}
+"""
+print(obj)
+ch=int(input("Enter the choice:-")) # 1 ,2 ,3  ===0,1,2
+q=int(input("Enter the quantity :-"))
+bill=perItem[ch-1]*q
+tax =bill*5/100
+total_bill=bill+tax
+
+out=f"""
+Bill         :- {bill}
+Tax          :- {tax}
+Total Bill   :- {total_bill}
+
+Thank you visit again!
+"""
+
+print(out)
+
+#####################################

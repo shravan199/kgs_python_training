@@ -1,0 +1,198 @@
+input="I43N4D4I43@4123D34E3L44H5I"
+# h="".join(list(filter(lambda x : not x.isdigit() ,input)))
+h="".join(list(filter(lambda x : x not in [str(n) for n in range(10)] ,input)))
+print(h)
+
+#create a list of 1000 numbers ?
+# out=[]
+# for i in range(1,1001):
+#     out.append(i)
+# print(out)
+# list comprehension in python
+# [value for loop_var in iterObject]
+# g=[i for i in range(1,1001)]
+# print(g)
+# [value for loop_var in iterObject if exp]
+# g=[i for i in range(1,20) if i%2==0]
+# print(g)
+
+# [value1 if exp else value2 for loop_var in iterObject ]
+# g=[i if i%2==0 else "Odd" for i in range(1,20) ]
+# print(g)
+g='9' not in [str(n) for n in range(10)]
+print(g)
+##########################################
+seq=[67,89,45,67,89,56]
+er=[89,56]
+# f=list(map(lambda x: x*2+x/0.6+45.89,seq))
+f=list(map(lambda x: x*2 if x in er else x ,seq))
+print(f)
+##################################
+seq=[67,89,45,67,89,56]
+er=[89,56]
+# f=list(map(lambda x: x*2+x/0.6+45.89,seq))
+f=list(map(lambda x: x*2 if x in er else x ,seq))
+print(f)
+
+res=1
+for i in seq:
+    res=res*i 
+    
+print(res)
+
+from functools import reduce 
+res=reduce(lambda x,y: x*y ,seq)
+
+print(res)
+#################################################
+import re
+str='we need to inform him with the latest information'
+#The expression re.findall() returns all the non-overlapping
+#matches of patterns in a string as a list of strings. 
+allinform=re.findall('inform ', str)
+print(allinform)
+for i in allinform:
+    print(i)
+
+################################################
+import re
+
+str="Sat hat mat paat #at_at.at 9at (at"
+out=re.findall('[shmpa]at',str)
+print(out)
+###########################################
+str=['Sat hat mat +++ pat','Hatmatpat not bad ...',
+     'hatlo 90*&6 hii hmmmm','aat','@at234'] 
+print(str)
+# #if First 3 char matched return full string list? dnt use if -else ,update regex
+#'^[Shmpa]at' >> 
+#output: ['Sat hat mat +++ pat','hatlo 90*&6 hii hmmmm','aat']
+
+###############################################################
+str=['Sat hat mat +++ pat','Hatmatpat not bad ...',
+     'hatlo 90*&6 hii hmmmm','aat','@at234'] 
+print(str)
+# #if First 3 char matched return full string list? dnt use if -else ,update regex
+#'^[Shmpa]at' >> 
+#output: ['Sat hat mat +++ pat','hatlo 90*&6 hii hmmmm','aat']
+matched_list=[]
+for i in str:
+    out=re.findall('^[Shmpa]at.*',i)
+    matched_list.extend(out)
+
+print(matched_list)
+###########################################################
+str=['+91-222-81345','+82-333-82456','+56-356-67894','+43-333-89456','+99-888-67897','+56-5678-67890', '+91-676-8905678','1+91-222-81345']
+#print(str)
+###################################
+str=['+91-222-81345','+82-333-82456','+56-356-67894','+43-333-89456','+99-888-67897','+56-5678-67890', '+91-676-8905678','1+91-222-81345']
+print(str)
+matched_list=[]
+for i in str:
+    out=re.findall('[+]',i)
+    matched_list.extend(out)
+
+print(matched_list)
+#############################################################################
+str=['+91-222-81345','+82-333-82456','+56-356-67894','+43-333-89456','+99-888-67897','+56-5678-67890', '+91-676-8905678','1+91-222-81345']
+print(str)
+matched_list=[]
+for i in str:
+    out=re.findall('^[+][985][1-6][-][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9][0-9]$',i)
+    matched_list.extend(out)
+
+print(matched_list)
+#######################################################################
+'^[+][985][1-6]-[0-9]{3}-[0-9]{5}$'
+'^[+][985][1-6]-\d{3}-\d{5}$'
+'^\+[985][1-6]-\d{3}-\d{5}$'
+##################################################
+raj@gmail.com
+hello.com
+hii@.com
+yu@jhon.com'
+'ra_me-sh@gmail.com
+email@example.com
+firstname.lastname@example.com
+email@subdomain.example.com
+firstname+lastname@example.com
+email@123.123.123.123
+email@[123.123.123.123]
+"email"@example.com
+1234567890@example.com
+email@example-one.com
+_______@example.com
+email@example.name
+email@example.museum
+email@example.co.jp
+firstname-lastname@example.com
+#@%^%#$@#$@#.com
+@example.com
+Joe Smith <email@example.com>
+email.example.com
+email@example@example.com
+.email@example.com
+email.@example.com
+email..email@example.com
+email@example.com (Joe Smith)
+email@example
+email@-example.com
+email@example.web
+email@111.222.333.44444
+email@example..com
+##################################################
+import re
+with open('lines.txt') as file :
+    new=open('valid.txt','w')
+    new1=open('invalid.txt','w')
+    
+    valid_no_list=[]
+    invaild_no_list=[]
+    m=0
+    for line in file:
+        m+=1
+        out=re.findall(r'^[\w.%+-]{1,20}@[A-Za-z0-9.-]{2,20}[.][a-zA-Z]{2,3}$',line.strip())
+        if len(out)!=0:
+            valid_no_list.extend(out)
+            new.write(out[0]+'\n')
+        else:
+            invaild_no_list.extend([line])
+            new1.write(line)
+            
+print("Total Raw Emails:-",m)
+print("total valid list number:- ",len(valid_no_list))
+print("total invalid list number:- ",len(invaild_no_list))              
+print("done")
+        
+######################################################################
+
+https://forms.gle/KRZYc1rYFTGK8LbFA
+
+
+Hi All,
+
+Above is the link for Daily Quiz-2, Please do take it as it is mandatory.
+Any challenges please use mobile browser to complete the quiz .
+
+
+
+HAPPY LEARNING
+
+Regards
+Utkarsh
+=======================================================================
+
+https://forms.gle/iU9kVSDuiJaCjaWN7
+
+Hi All,
+
+Above is the link for Daily Quiz-3, Please do take it as it is mandatory.
+Any challenges please use mobile browser to complete the quiz .
+
+
+
+HAPPY LEARNING
+
+Regards
+Utkarsh
+########################################################

@@ -1,0 +1,10 @@
+a, b, c =30, "dfs", 20.34, # 'shrvan'
+print(a)
+print(b)
+print(c)
+print(type(a))
+print(type(b))
+print(type(c))
+print(id(a))
+print(id(b))
+print(id(c))

@@ -1,0 +1,279 @@
+https://github.com/xpn/CUDA-MD5-Crack/raw/master/wordlist.txt
+######################################################################
+"https://craphound.com/images/1006884_2adf8fc7.jpg"
+####################################################
+import bs4
+
+html="""
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>My title</title>
+</head>
+<body>
+This is just a text <br />
+<p class='css1'>first paragraph </p>
+<p id='myid'>second paragraph </p>
+<p>third paragraph </p>
+<br />
+<a href="https://www.python.org" class='mylink'>first link</a><br />
+<a href="http://www.linux.com">second link</a>
+<br />
+<div class='some_class'>
+   this is inside a div<br />
+   <p>paragraph inside a div</p>
+</div>
+</body>
+</html>
+
+"""
+#######################################
+import bs4
+
+html="""
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>My title</title>
+</head>
+<body>
+This is just a text <br />
+<p class='css1'>first paragraph </p>
+<p id='myid'>second paragraph </p>
+<p>third paragraph </p>
+<br />
+<a href="https://www.python.org" class='mylink'>first link</a><br />
+<a href="http://www.linux.com">second link</a>
+<a>second link</a>
+<br />
+<div class='some_class'>
+   this is inside a div<br />
+   <p>paragraph inside a div</p>
+</div>
+
+<div class='some_class1'>
+   this is inside a div-1<br />
+   <p>paragraph inside a div-1</p>
+</div>
+
+</body>
+</html>
+
+"""
+
+soup=bs4.BeautifulSoup(html,"html.parser")
+
+# g=soup.title.text
+# print(g)
+# b=soup.body.text
+# print(b)
+#m=soup.find('div')# return only first div tag
+# m=soup.find_all('div')# list of all div tags
+#m=soup.find_all(['div','p'])#return the list of all div and p tags
+#m=soup.find_all('p',id='myid')
+# m=soup.find_all('div',class_="some_class")
+# print(m)
+#print all the anchor tags ? 
+b=soup.find_all('a',href=True,limit=10)
+print(b)
+for link in b:
+    print(link.get('href'))
+
+###########################################################
+import requests as rq
+import time
+
+url="https://craphound.com/images/1006884_2adf8fc7.jpg"
+#res=rq.get(url,headers={"Auth":"Token"})
+res=rq.get(url)
+print(res.status_code)
+if res.ok:
+    obj=open("out.png",'wb')
+    for chunk in res.iter_content(10000):
+        obj.write(chunk)
+        #print(chunk)
+#         time.sleep(10)
+#     obj.write(res.content)
+    print("done")
+else:
+    print("URL not found!")
+
+# 127.0.0.1:8000/api/student
+# 
+# get the list of student > requests.get() 
+# insert the student or students > requests.post()
+# update the > put , patch 
+# delete the > delete
+############################################
+import requests as rq
+import time
+url="https://github.com/xpn/CUDA-MD5-Crack/raw/master/wordlist.txt"
+res=rq.get(url)
+print(type(res))
+print(res.ok)
+
+
+
+if res.ok:
+    obj=open("out.txt",'wb')
+    for chunk in res.iter_content(10000):
+        obj.write(chunk)
+        #print(chunk)
+#         time.sleep(10)
+#     obj.write(res.content)
+    print("done")
+else:
+    print("URL not found!")
+    
+###########################################
+import requests as rq
+url="https://www.python.org/"
+output=rq.get(url)
+print(type(output))
+print(output.status_code)
+print(output.ok)
+content=output.content
+print(content)
+##################################
+https://www.imdb.com/search/title/?title_type=tv_movie&release_date=2022-01-01,2023-08-18&sort=release_date,asc&count=250
+#####################################################
+import requests as rq 
+from bs4 import BeautifulSoup
+from openpyxl import Workbook
+url="https://www.imdb.com/search/title/?title_type=tv_movie&release_date=2022-01-01,2023-08-18&sort=release_date,asc&count=250"
+res=rq.get(url)
+soup=BeautifulSoup(res.content,'html.parser')
+print(res.ok)
+content=soup.find_all('div',class_="lister-item-content")
+movies=list()
+for item in content:#value
+    name=item.h3.a.text
+    try:
+        rating= float(item.strong.text)
+    except:
+        rating=0
+#     print(rating)
+    movies.append((name,rating))
+print(len(movies))
+##########write a data into excel################
+wb=Workbook()
+sheet=wb.active
+sheet.title="IMDB Movies Data"
+sheet['A1']="Name"
+sheet['B1']="Rating"
+for movie in movies:
+    sheet.append(movie)
+    
+wb.save("movies-18-08.xlsx")
+###########################################
+python -m pip install virtualenv
+###########################################
+pip install -U django==3.2.9
+
+############################################
+django-admin startproject kpmg
+
+#######################################
+cd kpmg 
+######################################
+python manage.py runserver
+#########################################
+http://127.0.0.1:8000/
+#######################################
+#views.py
+from django.shortcuts import render
+from django.http import HttpResponse
+
+# Create your views here.
+#http://127.0.0.1:8000//app/index
+def index(request):
+    return HttpResponse("<h1>Hello World ,This is my First application new_app!</h1>")
+
+######################################
+#create urls.py inside application 
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+path('index/', views.index,name='index')
+
+]
+
+#########################################
+# update settings.py
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'new_app',
+
+####################################
+#project urls.py file update it 
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('app/', include('new_app.urls'))
+]
+##########################################
+import time
+def calc_square(numbers):
+    print("calculate square numbers")
+    for n in numbers:
+        time.sleep(0.2) #pause
+        print('square:',n*n)
+
+def calc_cube(numbers):
+    print("calculate cube of numbers")
+    for n in numbers:
+        time.sleep(0.2)
+        print('cube:',n*n*n)
+
+arr = [2,3,8,9]
+
+t = time.time()
+
+calc_square(arr)
+calc_cube(arr)
+print("done in : ",time.time()-t)
+print("Hah... I am done with all my work now!")
+
+####################################################
+import time
+import threading
+def calc_square(numbers):
+    print("calculate square numbers")
+    for n in numbers:
+        time.sleep(0.2) #pause
+        print('square:',n*n)
+
+def calc_cube(numbers):
+    print("calculate cube of numbers")
+    for n in numbers:
+        time.sleep(0.2)
+        print('cube:',n*n*n)
+
+arr = [2,3,8,9]
+
+t = time.time()
+th1=threading.Thread(target=calc_square,args=(arr,))
+th2=threading.Thread(target=calc_cube,args=(arr,))
+th1.start()
+th2.start()
+th1.join()
+th2.join()
+print("done in : ",time.time()-t)
+print("Hah... I am done with all my work now!")
+
+###############################################################
+
+

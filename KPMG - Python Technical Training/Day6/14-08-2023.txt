@@ -1,0 +1,367 @@
+class DemoClass:
+    var=90#public
+    print("This is Demo Class.")
+    
+    
+   
+obj1=DemoClass()#create a new object in python
+print(obj1)
+print(obj1.var)
+obj1.var += 20 #update the value with in the obj1 Memory 
+print(DemoClass.var)#take it back from the Class memory
+print("=============Another Object-2=============")
+obj2=DemoClass()
+print(obj2)
+print(obj2.var)
+obj2.var +=10
+print(obj1.var)
+print(obj2.var)
+###########################################
+class demo:
+    var=78
+    print("This is demo class")
+    def moxicip(self,name="Krishna",age=90):
+        print("This is moxicip method.")
+        name1=name+' '+"Sharma"
+        return name1,age,self.var#object memory #demo.var#class memory
+                
+obj1=demo()
+print(obj1)
+print(obj1.var)
+v=obj1.moxicip("Raj",45)
+print(v)
+print("================")
+obj2=demo()
+print(obj2)
+m=obj2.moxicip(age=56,name="Manish")
+print(m)
+####################################################
+class demo:
+    var=78
+    print("This is demo class")
+    def moxicip(self,name="Krishna",age=90):
+        print("This is moxicip method.")
+        name1=name+' '+"Sharma"
+        return name1,age,self.var#object memory #demo.var#class memory
+    
+    def out(self):
+        print(name1)
+    
+    
+                
+obj1=demo()
+print(obj1)
+print(obj1.var)
+v=obj1.moxicip("Raj",45)
+print(v)
+obj1.out()
+
+# print("================")
+# obj2=demo()
+# print(obj2)
+# m=obj2.moxicip(age=56,name="Manish")
+# print(m)
+
+###############################################################
+class demo:
+    var=78
+    print("This is demo class")
+    def moxicip(self,name="Krishna",age=90):
+        print("This is moxicip method.")
+        name1=name+' '+"Sharma"#local
+        self.name1=name1#create an object attribute name1
+        return name1,age,self.var#object memory #demo.var#class memory
+    
+    def out(self):
+        print(self.name1)#get the attribute value from the object
+    
+    
+                
+obj1=demo()
+print(obj1)
+print(obj1.var)
+v=obj1.moxicip("Raj",45)
+print(v)
+obj1.out()
+print(obj1.name1)
+
+# print("================")
+# obj2=demo()
+# print(obj2)
+# print(obj2.name1)
+# m=obj2.moxicip(age=56,name="Manish")
+# print(m)
+
+#################################################
+class demo:
+    var=78
+#     name1=None
+    print("This is demo class")
+    def moxicip(self,name="Krishna",age=90):
+        print("This is moxicip method.")
+        name1=name+' '+"Sharma"#local
+        self.name1=name1#create an object attribute name1
+        return name1,age,self.var#object memory #demo.var#class memory
+    
+    def out(self):
+#         v=self.moxicip()#get the method moxicip() with in another method
+        print(self.name1)#get the attribute value from the object
+    
+    
+                
+obj1=demo()
+print(obj1)
+print(obj1.var)
+v=obj1.moxicip("Raj",45)
+print(v)
+obj1.out()
+print(obj1.name1)
+##################################################
+class demo:
+    var=78#public
+    __var1=90#private
+    _var2=90#protected
+#     name1=None
+    print("This is demo class")
+    def moxicip(self,name="Krishna",age=90):
+        print("This is moxicip method.")
+        name1=name+' '+"Sharma"#local
+        self.name1=name1#create an object attribute name1
+        return name1,age,self.var#object memory #demo.var#class memory
+    
+    def out(self):
+#         v=self.moxicip()#get the method moxicip() with in another method
+        print(self.name1,self.__var1)#get the attribute value from the object
+        
+
+obj1=demo()
+print(obj1.var)
+obj1.var=90
+print(obj1.var)
+print(obj1._var2)
+print(obj1.__var1)
+###################################################
+class details:
+#     i=0
+    print("This is details class.")
+    def __init__(self,name,email,mobileNo):
+        print("this is init method.and object No.")
+        self.name=name 
+        self.email=email 
+        self.mobileNo=mobileNo
+        
+    def __str__(self):
+        return f"{self.name} {self.email} and {self.mobileNo}"
+        
+obj1=details("Nishant","Test@gmail.com",896646)
+print(obj1)
+obj2=details("Raj","Test1234@gmail.com",57898954)
+print(obj2)
+##########################################
+class Vehicle:
+    def __init__(self,name,type,price):
+        print(f"{name} is a {type} worth {price}$.") 
+           
+car1=Vehicle("Fer","Red cov.",734483490)
+car2=Vehicle("Jump","Blue Van" ,463676)
+###########################################
+class Vehicle:
+    def get_data(self,name,type,price):
+        print(f"{name} is a {type} worth {price}$.") 
+           
+car1=Vehicle()
+car1.get_data("Fer","Red cov.",734483490)
+car2=Vehicle()
+car2.get_data("Jump","Blue Van" ,463676)
+########################################
+class Vehicle:
+    def general_usage(self):
+        print("general use: transporation")
+
+class Car:
+    def __init__(self):
+        print("I'm car")
+        self.wheels = 4
+        self.has_roof = True
+
+    def specific_usage(self):
+        
+        print("specific use: commute to work, vacation with family")
+
+class MotorCycle:
+    def __init__(self):
+        print("I'm motor cycle")
+        self.wheels = 2
+        self.has_roof = False
+
+    def specific_usage(self):
+        
+        print("specific use: road trip, racing")
+
+#######################################
+class Vehicle:
+    var=78
+    def general_usage(self):
+        print("general use: transporation")
+#simple inheritance
+class Car(Vehicle):
+    def __init__(self):
+        print("I'm car")
+        self.wheels = 4
+        self.has_roof = True
+
+    def specific_usage(self):
+        print("Inside class:-",self.var)
+        print("specific use: commute to work, vacation with family")
+
+c=Car()
+print(c.has_roof)
+c.specific_usage()
+c.general_usage()
+print("outside class:-",c.var)
+
+##########################################
+class Vehicle:
+    var=78
+    def general_usage(self):
+        print("general use: transporation")
+#simple inheritance
+class Car(Vehicle):
+    var=45
+    def __init__(self):
+        print("I'm car")
+        self.wheels = 4
+        self.has_roof = True
+
+    def specific_usage(self):
+        print("Inside class:-",self.var,Vehicle.var)
+        self.general_usage()#parent class method calling inside child class method
+        print("specific use: commute to work, vacation with family")
+
+c=Car()
+print(c.has_roof)
+c.specific_usage()
+c.general_usage()
+print("outside class:-",c.var,Vehicle.var)
+#########################################################
+# multilevel inheritance in python
+#method overriding
+class Father:
+    def skills(self):
+        print("I enjoy gardening")
+
+class Mother(Father):
+    def skills(self):
+        print("I love cooking")
+
+class Child(Mother):
+    def  skills(self):
+#         Father.skills(self)#when method overriding is there
+#         Mother.skills(self)
+        print("I enjoy sports")
+        
+c=Child()
+c.skills()
+#How to access the Method skills of Mother class  
+#with child class object c when method overriding is there? 
+# Mother.skills(c)
+# Father.skills(c)
+#############################################################
+# multilevel inheritance in python
+#method overriding
+#method overloading 
+class Father:
+    def __init__(self,fname):
+        self.fname=fname
+    def skills(self):
+        print("I enjoy gardening",self.fname)
+
+class Mother(Father):
+    def __init__(self,mname):
+        self.mname=mname
+    def skills(self):
+        print("I love cooking",self.mname)
+
+class Child(Mother):
+    def __init__(self,name):
+        self.name=name
+    def  skills(self):
+        Father.skills(self)#when method overriding is there
+        Mother.skills(self)
+        print("I enjoy sports",self.name)
+        
+c=Child()
+c.skills()
+#################################################
+# multilevel inheritance in python
+#method overriding
+#method overloading 
+class Father:
+    def __init__(self,fname):
+        self.fname=fname
+    def skills(self):
+        print("I enjoy gardening",self.fname)
+
+class Mother(Father):
+    def __init__(self,mname,fname):
+        super().__init__(fname)
+        self.mname=mname
+    def skills(self):
+        print("I love cooking",self.mname)
+
+class Child(Mother):
+    def __init__(self,name,mname,fname):
+        super().__init__(mname, fname)
+        self.name=name
+    def  skills(self):
+        Father.skills(self)#when method overriding is there
+        Mother.skills(self)
+        print("I enjoy sports",self.name)
+        
+c=Child('me',"Maa","Paa")
+c.skills()
+###############################################
+# multiple inheritance in python 
+#method overriding
+#error
+#Solve the method overloading  prob.
+class Father:
+    def __init__(self,fname):
+        self.fname=fname
+    def skills(self):
+        print("I enjoy gardening",self.fname)
+
+class Mother(Father):
+    def __init__(self,mname):
+        
+        self.mname=mname
+    def skills(self):
+        print("I love cooking",self.mname)
+
+class Child(Mother,Father):
+    def __init__(self,name,mname,fname): 
+        self.name=name
+    def  skills(self):
+        
+        Mother.skills(self)
+        Father.skills(self)#when method overriding is there
+        print("I enjoy sports",self.name)
+        
+c=Child('me',"Maa","Paa")
+c.skills()
+############################################################
+
+
+https://forms.gle/fGbPFSG54zHrdSQy8
+
+Hi All,
+
+Above is the link for the Daily Quiz-2, Please do take it as it is mandatory.
+Any challenges please do ping me on the same.
+
+ 
+HAPPY LEARNING
+
+Regards
+Utkarsh
+#################################################################

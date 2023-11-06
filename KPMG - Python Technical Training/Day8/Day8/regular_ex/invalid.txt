@@ -1,0 +1,17 @@
+hello.com
+hii@.com
+yu@jhon.com'
+'ra_me-sh@gmail.com
+email@123.123.123.123
+email@[123.123.123.123]
+"email"@example.com
+email@example.name
+email@example.museum
+#@%^%#$@#$@#.com
+@example.com
+Joe Smith <email@example.com>
+email.example.com
+email@example@example.com
+email@example.com (Joe Smith)
+email@example
+email@111.222.333.44444

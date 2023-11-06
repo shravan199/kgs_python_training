@@ -1,0 +1,14 @@
+{
+    "student": [
+        {
+            "id": 2000,
+            "name": "Shravan",
+            "result": "Pass"
+        },
+        {
+            "id": 3000,
+            "name": "Shreyansh",
+            "result": "Pass"  
+        }
+    ]
+}

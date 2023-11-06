@@ -1,0 +1,100 @@
+
+onedrive link 
+https://choosemymentor-my.sharepoint.com/:f:/g/personal/mani_dharmarajan_techademy_com/EsDStD-Ei4dIi4H-2HR067sBBIfUlaf6q6pP-Jq4XqgNIQ?e=VoUOPl
+
+
+south@123
+
+#######################################
+a=b=c="Nishant"
+print(a)
+print(b)
+print(c)
+
+print(type(a))
+
+print(id(a))
+print(id(b))
+print(id(c))
+###############################
+a,b,c=10,10.8,"Nishant"
+
+print(a)
+print(b)
+print(c)
+
+print(type(a))
+print(type(b))
+print(type(c))
+
+print(id(a))
+print(id(b))
+print(id(c))
+
+##############################
+a,b,c=10,10.8
+#ValueError: not enough values to unpack (expected 3, got 2)
+print(a)
+print(b)
+print(c)
+
+print(type(a))
+print(type(b))
+print(type(c))
+
+print(id(a))
+print(id(b))
+print(id(c))
+
+################################
+a,b=10,10.8,"Nishant"
+#ValueError: too many values to unpack (expected 2)
+print(a)
+print(b)
+print(c)
+
+print(type(a))
+print(type(b))
+print(type(c))
+
+print(id(a))
+print(id(b))
+print(id(c))
+
+
+#####################################
+# a=() #empty tuple
+a=(10,10.8,"Nishant")  # tuple of more than one value
+
+print(a)
+print(id(a),type(a),len(a))   
+#comments in python 
+
+'''
+Hello This Multilin ctrl+ /(?)
+comments 
+in  python
+
+'''
+
+##############################################
+# create one value Tuple of UTKARSH ?
+a=
+print(a)
+print(id(a),type(a),len(a))   
+################################################
+# create one value Tuple of UTKARSH ?
+a= "UTKARSH", #("UTKARSH",)
+print(a)
+print(id(a),type(a),len(a))   
+################################################
+a="NISHANT"
+a=(10,10.8,"Nishant",(89,("Hii",)),90.78,"Test")
+print(a)
+
+b=a[-2] #90.78
+print(b)
+
+# get the index number of Value Hii from given tuple a ?
+
+####################################################

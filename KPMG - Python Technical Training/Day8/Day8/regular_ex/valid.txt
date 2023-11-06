@@ -1,0 +1,16 @@
+raj@gmail.com
+email@example.com
+firstname.lastname@example.com
+email@subdomain.example.com
+firstname+lastname@example.com
+1234567890@example.com
+email@example-one.com
+_______@example.com
+email@example.co.jp
+firstname-lastname@example.com
+.email@example.com
+email.@example.com
+email..email@example.com
+email@-example.com
+email@example.web
+email@example..com
